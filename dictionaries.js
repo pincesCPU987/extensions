@@ -6,7 +6,7 @@ class Dict {
 			name: 'Dictionaries',
 			blocks: [
 				{
-					opcode: 'add',
+					opcode: 'addItem',
 					blockType: Scratch.BlockType.COMMAND,
 					text: 'add [VALUE] to dictionary [DICT] with key [KEY]',
 					VALUE: {
@@ -23,7 +23,7 @@ class Dict {
 					}
 				},
 				{
-					opcode: 'create',
+					opcode: 'createDict',
 					blockType: Scratch.BlockType.COMMAND,
 					text: 'create dictionary [DICT]',
 					DICT: {
@@ -32,20 +32,24 @@ class Dict {
 					}
 				},
 				{
-					opcode: 'replace',
+					opcode: 'replaceItem',
 					blockType: Scratch.BlockType.COMMAND,
-					text: 'replace item with key [KEY] from dictionary [DICT]',
+					text: 'replace item with key [KEY] from dictionary [DICT] with [VALUE]',
 					KEY: {
 						type: Scratch.ArgumentType.STRING,
 						defaultValue: 'item 1',
 					},
-					DICT {
+					DICT: {
 						type: Scratch.ArgumentType.STRING,
 						defaultValue: 'my dictionary'
 					}
+					VALUE: {
+						type: Scratch.ArgumentType.STRING,
+						defaultValue: 'thing'
+					}
 				},
 				{
-					opcode: 'check',
+					opcode: 'reportItem',
 					blockType: Scratch.BlockType.REPORTER,
 					text: 'item with key [KEY] from dictionary [DICT]',
 					KEY: {
@@ -67,19 +71,24 @@ class Dict {
 					}
 				}
 			]
-		}
+		};
 	}
-	create(args){
-		if(!allDicts[args.DICT]){
-			allDicts[args.DICT] = {};
-		}
-	}
-	add(args) {
+	addItem(args) {
 		if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
 			allDicts[args.DICT][args.KEY] = args.VALUE;
 		}
 	}
-	check(args) {
+	createDict(args){
+		if(!allDicts[args.DICT]){
+			allDicts[args.DICT] = {};
+		}
+	}
+	replaceItem(args){
+		if(allDicts[args.DICT][args.KEY]){
+			allDicts[args.DICT][args.KEY] = args.VALUE;
+		}
+	}
+	reportItem(args) {
 		if(allDicts[args.DICT][args.KEY]){
 			return allDicts[args.DICT][args.KEY];
 		} else {
