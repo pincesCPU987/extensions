@@ -90,4 +90,4 @@ class Dict {
 		return allDicts[args.DICT].keys().length == 0;
 	}
 }
-Scratch.extensions.register(new MyExtension());
+Scratch.extensions.register(new Dict());
