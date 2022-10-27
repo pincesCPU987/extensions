@@ -1,5 +1,5 @@
 var allDicts = {};
-class Dict {
+class Abcde {
 	getInfo() {
 		return {
 			id: 'dicts',
@@ -111,4 +111,4 @@ class Dict {
 		return allDicts[args.DICT].keys().length == 0;
 	}
 }
-Scratch.extensions.register(new Dict());
+Scratch.extensions.register(new Abcde());
