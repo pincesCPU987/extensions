@@ -9,7 +9,7 @@ class Dict {
 					opcode: 'addItem',
 					blockType: Scratch.BlockType.COMMAND,
 					text: 'add [VALUE] to dictionary [DICT] with key [KEY]',
-					arguments: {
+					'arguments': {
 						VALUE: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'thing'
@@ -28,7 +28,7 @@ class Dict {
 					opcode: 'createDict',
 					blockType: Scratch.BlockType.COMMAND,
 					text: 'create dictionary [DICT]',
-					arguments: {
+					'arguments': {
 						DICT: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'my dictionary'
@@ -39,7 +39,7 @@ class Dict {
 					opcode: 'replaceItem',
 					blockType: Scratch.BlockType.COMMAND,
 					text: 'replace item with key [KEY] from dictionary [DICT] with [VALUE]',
-					arguments: {
+					'arguments': {
 						KEY: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'item 1',
@@ -47,7 +47,7 @@ class Dict {
 						DICT: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'my dictionary'
-						}
+						},
 						VALUE: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'thing'
@@ -58,7 +58,7 @@ class Dict {
 					opcode: 'reportItem',
 					blockType: Scratch.BlockType.REPORTER,
 					text: 'item with key [KEY] from dictionary [DICT]',
-					arguments: {
+					'arguments': {
 						KEY: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'item 1'
@@ -67,20 +67,20 @@ class Dict {
 							type: Scratch.ArumentType.STRING,
 							defaultValue: 'my dictionary'
 						}
-					}
-					disableMonitor: true;
-				}
+					},
+					disableMonitor: true
+				},
 				{
 					opcode: 'isEmpty',
 					blockType: Scratch.BlockType.BOOLEAN,
 					text: 'dictionary [DICT] is empty?',
-					arguments: {
+					'arguments': {
 						DICT: {
 							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'my dictionary'
 						}
-					}
-					disableMonitor: true;
+					},
+					disableMonitor: true
 				}
 			]
 		};
