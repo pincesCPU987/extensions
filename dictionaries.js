@@ -1,4 +1,4 @@
-const allDicts = {};
+var allDicts = {};
 class Dict {
 	getInfo() {
 		return {
@@ -68,6 +68,7 @@ class Dict {
 							defaultValue: 'my dictionary'
 						}
 					}
+					disableMonitor: true;
 				}
 				{
 					opcode: 'isEmpty',
@@ -79,19 +80,24 @@ class Dict {
 							defaultValue: 'my dictionary'
 						}
 					}
+					disableMonitor: true;
 				}
 			]
 		};
 	}
 	addItem(args) {
-		if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
-			allDicts[args.DICT][args.KEY] = args.VALUE;
-		}
+	    return function(){
+    		if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
+    			allDicts[args.DICT][args.KEY] = args.VALUE;
+    		}
+	    }
 	}
 	createDict(args){
-		if(!allDicts[args.DICT]){
-			allDicts[args.DICT] = {};
-		}
+    	return function(){
+    		if(!allDicts[args.DICT]){
+    			allDicts[args.DICT] = {};
+    		}
+    	}
 	}
 	replaceItem(args){
 		if(allDicts[args.DICT][args.KEY]){
