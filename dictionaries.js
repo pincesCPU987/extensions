@@ -2,7 +2,7 @@ var allDicts = {};
 class Dict {
 	getInfo() {
 		return {
-			id: 'dictionaries',
+			id: 'dicts',
 			name: 'Dictionaries',
 			blocks: [
 				{
