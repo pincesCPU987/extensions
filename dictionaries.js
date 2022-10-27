@@ -86,30 +86,26 @@ class Dict {
 		};
 	}
 	addItem(args) {
-	    return function(){
-    		if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
-    			allDicts[args.DICT][args.KEY] = args.VALUE;
-    		}
-	    }
+      if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
+        allDicts[args.DICT][args.KEY] = args.VALUE;
+      }
 	}
 	createDict(args){
-    	return function(){
-    		if(!allDicts[args.DICT]){
-    			allDicts[args.DICT] = {};
-    		}
-    	}
+    if(!allDicts[args.DICT]){
+      allDicts[args.DICT] = {};
+    }
 	}
 	replaceItem(args){
-		if(allDicts[args.DICT][args.KEY]){
-			allDicts[args.DICT][args.KEY] = args.VALUE;
-		}
+    if(allDicts[args.DICT][args.KEY]){
+      allDicts[args.DICT][args.KEY] = args.VALUE;
+    }
 	}
 	reportItem(args) {
-		if(allDicts[args.DICT][args.KEY]){
-			return allDicts[args.DICT][args.KEY];
-		} else {
-			return '';
-		}
+    if(allDicts[args.DICT][args.KEY]){
+      return allDicts[args.DICT][args.KEY];
+    } else {
+      return '';
+    }
 	}
 	isEmpty(args) {
 		return allDicts[args.DICT].keys().length == 0;
