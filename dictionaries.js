@@ -272,7 +272,7 @@ class Abcde {
 	    } else {
 	        return false;
 	    }
-	},
+	}
 	dictContainsKey(args) {
 	    if(allDicts[args.DICT]){
 	        return Object.keys(allDicts[args.DICT]).includes(args.KEY);
