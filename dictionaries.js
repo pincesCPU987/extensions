@@ -42,7 +42,7 @@ class Abcde {
 					'arguments': {
 						KEY: {
 							type: Scratch.ArgumentType.STRING,
-							defaultValue: 'item 1',
+							defaultValue: 'item 1'
 						},
 						DICT: {
 							type: Scratch.ArgumentType.STRING,
@@ -53,6 +53,21 @@ class Abcde {
 							defaultValue: 'thing'
 						}
 					}
+				},
+				{
+				    opcode: 'deleteItem',
+				    blockType: Scratch.BlockType.COMMAND,
+				    text: 'delete item with key [KEY] from dictionary [DICT]',
+				    'arguments': {
+				        KEY: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'item 1'
+				        },
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        }
+				    }
 				},
 				{
 					opcode: 'reportItem',
@@ -86,33 +101,38 @@ class Abcde {
 		};
 	}
 	addItem(args) {
-      if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
-        allDicts[args.DICT][args.KEY] = args.VALUE;
-      }
+        if(allDicts[args.DICT] && !allDicts[args.DICT][args.KEY]){
+            allDicts[args.DICT][args.KEY] = args.VALUE;
+        }
 	}
 	createDict(args){
-    if(!allDicts[args.DICT]){
-      allDicts[args.DICT] = {};
-    }
+        if(!allDicts[args.DICT]){
+            allDicts[args.DICT] = {};
+        }
 	}
 	replaceItem(args){
-    if(allDicts[args.DICT][args.KEY]){
-      allDicts[args.DICT][args.KEY] = args.VALUE;
-    }
+        if(allDicts[args.DICT][args.KEY]){
+          allDicts[args.DICT][args.KEY] = args.VALUE;
+        }
+	}
+	deleteItem(args){
+        if(allDicts[args.DICT][args.KEY]){
+            delete allDicts[args.DICT][args.KEY];
+        }
 	}
 	reportItem(args) {
-    if(allDicts[args.DICT][args.KEY]){
-      return allDicts[args.DICT][args.KEY];
-    } else {
-      return '';
-    }
+        if(allDicts[args.DICT][args.KEY]){
+            return allDicts[args.DICT][args.KEY];
+        } else {
+            return '';
+        }
 	}
 	isEmpty(args) {
-	    if(allDicts[args.DICT]){
-	        return Object.keys(allDicts[args.DICT]).length == 0;
-	    } else {
-	        return true;
-	    }
+        if(allDicts[args.DICT]){
+            return Object.keys(allDicts[args.DICT]).length == 0;
+        } else {
+            return true;
+        }
 	}
 }
 Scratch.extensions.register(new Abcde());
