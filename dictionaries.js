@@ -108,7 +108,7 @@ class Abcde {
     }
 	}
 	isEmpty(args) {
-		return allDicts[args.DICT].keys().length == 0;
+		return Object.keys(allDicts[args.DICT]).length == 0;
 	}
 }
 Scratch.extensions.register(new Abcde());
