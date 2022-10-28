@@ -149,7 +149,7 @@ class Abcde {
 	    }
 	}
 	reportItem(args) {
-        if(allDicts[args.DICT].hasKey(args.KEY)){
+        if(allDicts[args.DICT][args.KEY]){
             return allDicts[args.DICT][args.KEY];
         } else {
             return '';
