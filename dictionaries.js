@@ -64,7 +64,7 @@ class Abcde {
 							defaultValue: 'item 1'
 						},
 						DICT: {
-							type: Scratch.ArumentType.STRING,
+							type: Scratch.ArgumentType.STRING,
 							defaultValue: 'my dictionary'
 						}
 					},
