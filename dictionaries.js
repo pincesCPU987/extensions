@@ -111,7 +111,7 @@ class Abcde {
 	    if(allDicts[args.DICT]){
 	        return Object.keys(allDicts[args.DICT]).length == 0;
 	    } else {
-	        return false;
+	        return true;
 	    }
 	}
 }
