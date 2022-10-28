@@ -203,12 +203,7 @@ class Abcde {
         }
 	}
 	reportAll(args) {
-	    var qwe = [];
-	    var rty = Object.keys(allDicts);
-	    for(var i = 0; i < rty.length; i++){
-	        qwe.push(rty[i]);
-	    }
-	    return JSON.stringify(qwe);
+	    return JSON.stringify(allDicts);
 	}
 }
 Scratch.extensions.register(new Abcde());
