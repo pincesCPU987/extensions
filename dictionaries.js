@@ -106,7 +106,6 @@ class Abcde {
 				            defaultValue: 'my dictionary'
 				        }
 				    },
-				    disableMonitor: false
 				},
 				{
 					opcode: 'isEmpty',
