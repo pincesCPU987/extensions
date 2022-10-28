@@ -159,6 +159,8 @@ class Abcde {
             } else {
                 return '';
             }
+	    } else {
+	        return '';
 	    }
 	}
 	reportDict(args) {
