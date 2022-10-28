@@ -148,6 +148,48 @@ class Abcde {
 					disableMonitor: true
 				},
 				{
+				    opcode: 'dictContainsItem',
+				    blockType: Scratch.BlockType.BOOLEAN,
+				    text: 'dictionary [DICT] contains item [ITEM]?',
+				    'arguments': {
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        },
+				        ITEM: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'thing'
+				        }
+				    },
+				    disableMonitor: true
+				},
+				{
+				    opcode: 'dictContainsKey',
+				    blockType: Scratch.BlockType.BOOLEAN,
+				    text: 'dictionary [DICT] has key [KEY]?',
+				    'arguments': {
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        },
+				        KEY: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'item 1'
+				        }
+				    }
+				},
+				{
+				    opcode: 'dictExists',
+				    blockType: Scratch.BlockType.BOOLEAN,
+				    text: 'dictionary [DICT] exists?',
+				    'arguments': {
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        }
+				    }
+				},
+				{
 				    opcode: 'reportAll',
 				    blockType: Scratch.BlockType.REPORTER,
 				    text: 'all dictionaries',
@@ -198,7 +240,7 @@ class Abcde {
 	}
 	reportKey(args){
 	    if(allDicts[args.DICT]){
-	        return Object.keys(allDicts[args.DICT]).find(key => obj[key] === value);
+	        return Object.keys(allDicts[args.DICT]).find(key => allDicts[args.DICT][key] === value);
 	    } else {
 	        return '';
 	    }
@@ -223,6 +265,23 @@ class Abcde {
         } else {
             return true;
         }
+	}
+	dictContainsItem(args) {
+	    if(allDicts[args.DICT]){
+	        return Object.entries(allDicts[args.DICT]).includes(args.ITEM);
+	    } else {
+	        return false;
+	    }
+	},
+	dictContainsKey(args) {
+	    if(allDicts[args.DICT]){
+	        return Object.keys(allDicts[args.DICT]).includes(args.KEY);
+	    } else {
+	        return false;
+	    }
+	}
+	dictExists(args) {
+	    return !!allDicts[args.DICT];
 	}
 	reportAll(args) {
 	    return JSON.stringify(allDicts);
