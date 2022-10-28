@@ -156,7 +156,7 @@ class Abcde {
         }
 	}
 	reportDict(args) {
-	    if(alDicts[args.DICT]){
+	    if(allDicts[args.DICT]){
 	        return allDicts[args.DICT];
 	    } else {
 	        return '';
