@@ -106,6 +106,7 @@ class Abcde {
 				            defaultValue: 'my dictionary'
 				        }
 				    },
+				    disableMonitor: false
 				},
 				{
 					opcode: 'isEmpty',
@@ -148,7 +149,7 @@ class Abcde {
 	    }
 	}
 	reportItem(args) {
-        if(allDicts[args.DICT][args.KEY]){
+        if(allDicts[args.DICT].hasKey(args.KEY)){
             return allDicts[args.DICT][args.KEY];
         } else {
             return '';
@@ -156,7 +157,7 @@ class Abcde {
 	}
 	reportDict(args) {
 	    if(allDicts[args.DICT]){
-	        return allDicts[args.DICT];
+	        return JSON.stringify(allDicts[args.DICT]);
 	    } else {
 	        return '';
 	    }
