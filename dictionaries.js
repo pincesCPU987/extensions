@@ -97,6 +97,21 @@ class Abcde {
 					disableMonitor: true
 				},
 				{
+				    opcode: 'reportKey',
+				    blockType: Scratch.BlockType.REPORTER,
+				    text: 'key of item [ITEM] from dictionary [DICT]',
+				    'arguments': {
+				        ITEM: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'thing'
+				        },
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        }
+				    }
+				},
+				{
 				    opcode: 'reportDict',
 				    blockType: Scratch.BlockType.REPORTER,
 				    text: 'dictionary [DICT]',
@@ -177,6 +192,13 @@ class Abcde {
             } else {
                 return '';
             }
+	    } else {
+	        return '';
+	    }
+	}
+	reportKey(args){
+	    if(allDicts[args.DICT]){
+	        return Object.keys(allDicts[args.DICT]).find(key => obj[key] === value);
 	    } else {
 	        return '';
 	    }
