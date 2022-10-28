@@ -134,14 +134,18 @@ class Abcde {
         }
 	}
 	replaceItem(args) {
-        if(allDicts[args.DICT][args.KEY]){
-          allDicts[args.DICT][args.KEY] = args.VALUE;
-        }
+	    if(allDicts[args.DICT]){
+            if(allDicts[args.DICT][args.KEY]){
+              allDicts[args.DICT][args.KEY] = args.VALUE;
+            }
+	    }
 	}
 	deleteItem(args){
-        if(allDicts[args.DICT][args.KEY]){
-            delete allDicts[args.DICT][args.KEY];
-        }
+	    if(allDicts[args.DICT]){
+            if(allDicts[args.DICT][args.KEY]){
+                delete allDicts[args.DICT][args.KEY];
+            }
+	    }
 	}
 	deleteDict(args) {
 	    if(allDicts[args.DICT]){
@@ -149,11 +153,13 @@ class Abcde {
 	    }
 	}
 	reportItem(args) {
-        if(allDicts[args.DICT][args.KEY]){
-            return allDicts[args.DICT][args.KEY];
-        } else {
-            return '';
-        }
+	    if(allDicts[args.DICT]){
+            if(allDicts[args.DICT][args.KEY]){
+                return allDicts[args.DICT][args.KEY];
+            } else {
+                return '';
+            }
+	    }
 	}
 	reportDict(args) {
 	    if(allDicts[args.DICT]){
