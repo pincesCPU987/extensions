@@ -94,7 +94,7 @@ class Abcde {
 							defaultValue: 'my dictionary'
 						}
 					},
-					disableMonitor: false
+					disableMonitor: true
 				},
 				{
 				    opcode: 'reportDict',
@@ -106,7 +106,19 @@ class Abcde {
 				            defaultValue: 'my dictionary'
 				        }
 				    },
-				    disableMonitor: false
+				    disableMonitor: true
+				},
+				{
+				    opcode: 'reportLength',
+				    blockType: Scratch.BlockType.REPORTER,
+				    text: 'length of dictionary [DICT]',
+				    'arguments': {
+				        DICT: {
+				            type: Scratch.ArgumentType.STRING,
+				            defaultValue: 'my dictionary'
+				        }
+				    },
+				    disableMonitor: true
 				},
 				{
 					opcode: 'isEmpty',
@@ -118,7 +130,13 @@ class Abcde {
 							defaultValue: 'my dictionary'
 						}
 					},
-					disableMonitor: false
+					disableMonitor: true
+				},
+				{
+				    opcode: 'reportAll',
+				    blockType: Scratch.BlockType.REPORTER,
+				    text: 'all dictionaries',
+				    disableMonitor: false
 				}
 			]
 		};
@@ -170,12 +188,27 @@ class Abcde {
 	        return '';
 	    }
 	}
+	reportLength(args) {
+	    if(allDicts[args.DICT]){
+	        return Object.keys(allDicts[args.DICT]).length;
+	    } else {
+	        return 0;
+	    }
+	}
 	isEmpty(args) {
         if(allDicts[args.DICT]){
             return Object.keys(allDicts[args.DICT]).length == 0;
         } else {
             return true;
         }
+	}
+	reportAll(args) {
+	    var qwe = [];
+	    var rty = Object.keys(allDicts);
+	    for(var i = 0; i < rty.length; i++){
+	        qwe.push(rty[i]);
+	    }
+	    return JSON.stringify(qwe);
 	}
 }
 Scratch.extensions.register(new Abcde());
