@@ -94,7 +94,7 @@ class Abcde {
 							defaultValue: 'my dictionary'
 						}
 					},
-					disableMonitor: true
+					disableMonitor: false
 				},
 				{
 				    opcode: 'reportDict',
@@ -118,7 +118,7 @@ class Abcde {
 							defaultValue: 'my dictionary'
 						}
 					},
-					disableMonitor: true
+					disableMonitor: false
 				}
 			]
 		};
