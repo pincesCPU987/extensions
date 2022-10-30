@@ -272,7 +272,9 @@ class Abcde {
 		console.log(a);
 		    var b = [];
 		for(var i = 0; i < a.length; i++){
-		    b.push(args.DICT[a[i]]);
+		    console.log(a[i]);
+			console.log(allDicts[args.DICT][a[i]])
+			b.push(allDicts[args.DICT][a[i]]);
 		}
 		    console.log(b)
 		    console.log(args.ITEM)
