@@ -268,7 +268,12 @@ class Abcde {
 	}
 	dictContainsItem(args) {
 	    if(allDicts[args.DICT]){
-	        return Object.entries(allDicts[args.DICT]).includes(args.ITEM);
+	        var a = Object.keys(allDicts[args.DICT]);
+		var b = [];
+		for(var i = 0; i < a.length; i++){
+		    b.push(args.DICT[a[i]]);
+		}
+		return b.includes(args.ITEM);
 	    } else {
 	        return false;
 	    }
